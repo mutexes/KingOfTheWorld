@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/86/kotw
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/8/kotw/__init__.py
+END
+settings.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/89/kotw/settings.py
+END
+django.wsgi
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/89/kotw/django.wsgi
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/83/kotw/urls.py
+END
+DB_SETUP.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/82/kotw/DB_SETUP.py
+END
+forms.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/70/kotw/forms.py
+END
+manage.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/8/kotw/manage.py
+END
+cronjob.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/86/kotw/cronjob.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/89/kotw/views.py
+END

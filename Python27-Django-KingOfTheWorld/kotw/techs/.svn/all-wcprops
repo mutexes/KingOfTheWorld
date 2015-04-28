@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/27/kotw/techs
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/27/kotw/techs/admin.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/25/kotw/techs/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/25/kotw/techs/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/25/kotw/techs/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/26/kotw/techs/models.py
+END

@@ -1,0 +1,110 @@
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404, redirect
+from forms import UserCreateForm
+from django.contrib.auth.forms import PasswordChangeForm, AuthenticationForm
+from django.template import RequestContext
+from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
+<<<<<<< .mine
+from django.contrib.auth import authenticate, login
+=======
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from countries.models import Country, Build, Army, Tech, Resource
+>>>>>>> .r51
+
+title = "King of the World"
+css = 'kotw.css'
+
+def home(request):
+	content = """<img src="/media/kotw-logo.jpg" alt="kotw-logo"/>
+			<p>Welcome to King of the World, a Massive Multiplayer Online Real-Time Strategy game you can play from anywhere.</p>
+			<p>	It is the year 2015, the world is in complete chaos at the moment. Just last year the world witnessed the third great war.
+			Large populations were wiped out in an instant as countries decided to use weapons of mass destruction. Six months after the
+			start of the war, the waring countries decided to attempt to stop the fighting by unleashing their nuclear arsenal. Nuclear
+			strikes bombarded the entire planet annhilating two-thirds of the world's population. The third world war came to an end that
+			day after the end of the bombardment. For the past 6 months, survivors fought like savages to survive. Small groups formed,
+			trying to rebuild civiliazation.</p>
+			<p>You have been chosen to be the leader of a small group. As their leader you are to lead them to conquer the world and unite
+			all the survivors under one banner to avoid another repeat of the third great war. <a href="/register/">Register</a> now and become the King of the World.</p>
+			<p><a href="/login/">Login</a></p>"""
+	return render_to_response('base.html', {'page_title': title, 'page_css':css, 'page_content':content})
+
+def register(request):
+	if request.method=='POST':
+		form=UserCreateForm(request.POST)
+		if form.is_valid():
+			u=form.save()
+			c=Country.objects.get(user=u)
+			b=Build(country=c)
+			b.save()
+			a=Army(country=c)
+			a.save()
+			t=Tech(country=c)
+			t.save()
+			r=Resource(country=c)
+			r.save()
+			return HttpResponseRedirect('/')
+	else:
+		form=UserCreateForm()
+	return render_to_response('form.html', {'page_title': title, 'page_css':css, 'register_form':form}, context_instance=RequestContext(request))
+
+def signin(request):
+	msg=[]
+	if request.method=='POST':
+		form=AuthenticationForm(request.POST)
+		username=request.POST['username']
+		password=request.POST['password']
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				#redirect to a success page
+				msg.append("login successful")
+				return redirect('/hq/')
+			else:
+				#return account has been disabled
+				msg.append("disabled account")
+		else:
+			#return invalid login
+			msg.append("invalid login")
+	else:
+		form=AuthenticationForm()
+<<<<<<< .mine
+	output='<form action="/login/" method="POST">'+str(form)+'<input type="submit" value="Register"></form>'
+	return HttpResponse(output)
+=======
+	return render_to_response('form.html', {'page_title': title, 'page_css':css, 'login_form':form, 'page_content':msg}, context_instance=RequestContext(request))
+
+def signout(request):
+	logout(request)
+	return HttpResponseRedirect('/')
+
+@login_required()
+def main(request):
+	u = request.user
+	c = Country.objects.get(user=u)
+	b = Build.objects.get(country=c)
+	a = Army.objects.get(country=c)
+	r = Resource.objects.get(country=c)
+	data = {'page_title': title, 'page_css':css}
+	data.update(country_name=c.name, country_user=u.username, country_government=c.government)
+	data.update(country_land=r.land, country_pop=r.pop, country_money=r.gold, country_food=r.food, country_oil=r.oil)
+	data.update(country_troops=a.troops, country_jets=a.jets, country_turrets=a.turrets, country_tanks=a.tanks)
+	#calculate offensive points/defensive points
+	data.update(country_offense=0, country_defense=0)
+	return render_to_response('game.html', data, context_instance=RequestContext(request)) 
+
+def ranks(request):
+    rank_list = []
+    country = Country.objects.all()
+    for c in country:
+       build = Build.objects.get(country=c)
+       army = Army.objects.get(country=c)
+       res = Resource.objects.get(country=c)
+       # net worth formula
+       # offense formula
+       # defense formula
+       rank_list.append((c.user.username, c.name, res.land))
+    return render_to_response('rank.html', {'rank_list': rank_list})
+>>>>>>> .r51

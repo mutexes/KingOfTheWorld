@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{{page_title}}
+{{page_css}}
+{% block content %}
+		<div id="navbar">
+			<ul class="tabs">
+				<li><a href="/kotw/hq/">Command Center</a></li>
+				<li><a href="/kotw/explore/">Explore</a></li>
+				<li><a href="/kotw/build/">Build</a></li>
+				<li><a href="/kotw/military/">Military</a></li>
+				<li><a href="/kotw/research/">Research</a></li>
+				<li><a href="/kotw/attack/">Attack</a></li>
+				<li><a href="/kotw/ranks/">Ranking</a></li>
+				<li><a href="/kotw/logout/">Logout</a></li>
+			</ul>
+		</div>
+		<div id="content">
+			{% block ranks %}
+			{% if rank_list %}
+			<ul>
+				<table border="1" class="sortable">
+					<tr>
+						<th>User</th>
+						<th>Country</th>
+						<th>Land</th>
+						<th>Networth</th>
+						<th>Military Offense</th>
+						<th>Military Defense</th>
+					</tr>
+				{% for user,country,land,nw,off,def in rank_list %}
+					<tr>
+						<td>{{user}}</td>
+						<td>{{country}}</td>
+						<td>{{land}}</td>
+						<td>{{nw}}</td>
+						<td>{{off}}</td>
+						<td>{{def}}</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</ul>
+			{% endif %}
+			{% endblock %}
+		</div>
+{% endblock %}

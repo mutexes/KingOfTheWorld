@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>{{page_title}}</title>
+        <link rel="stylesheet" href="/kotw/media/{{page_css|safe}}">
+        {% block page_js %}{% endblock %}
+    </head>
+    <body>
+	<div id="column">
+        {% block content %}
+        {{page_content|safe}}
+        {% endblock %}
+	</div>
+    </body>
+</html>

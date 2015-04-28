@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/26/kotw/buildings
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/26/kotw/buildings/admin.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/12/kotw/buildings/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/12/kotw/buildings/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/12/kotw/buildings/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/CMPT470-1131-g-team-lazy/!svn/ver/26/kotw/buildings/models.py
+END

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{{page_title}}
+{{page_css}}
+{% block content %}
+		<div id="navbar">
+			<ul class="tabs">
+				<li><a href="/kotw/hq/">Command Center</a></li>
+				<li><a href="/kotw/explore/">Explore</a></li>
+				<li><a href="/kotw/build/">Build</a></li>
+				<li><a href="/kotw/military/">Military</a></li>
+				<li><a href="/kotw/research/">Research</a></li>
+				<li><a href="/kotw/attack/">Attack</a></li>
+				<li><a href="/kotw/ranks/">Ranking</a></li>
+				<li><a href="/kotw/logout/">Logout</a></li>
+			</ul>
+		</div>
+		<div id="information">
+			<table border="1">
+				<tr>
+					<th>Gold</th>
+					<th>Food</th>
+					<th>Oil</th>
+					<th>Population</th>
+					<th>Land</th>
+				</tr>
+				<tr>
+					<td>{{country_gold}}</td>
+					<td>{{country_food}}</td>
+					<td>{{country_oil}}</td>
+					<td>{{country_pop}}</td>
+					<td>{{country_land}}</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="content">
+			<br/><form action="/kotw/military/" method="POST">{% csrf_token %}
+			<table border="1">
+				<tr>
+					<th>Unit (Off/Def)</th>
+					<th>You Own</th>
+					<th>Trained From</th>
+					<th>Cost</th>
+					<th>Max Trainable</th>
+					<th>Train</th>
+				</tr>
+				<tr>
+					<td>Troops ({{troops_off}}, {{troops_def}})</td>
+					<td>{{cur_troops}}</td>
+					<td>1 population unit</td>
+					<td>{{troops_cost}}</td>
+					<td>{{max_troops}}</td>
+					<td><input type="number" min="0" max="{{max_troops}}", value="0" name="train"/></td>
+				</tr>
+				<tr>
+					<td>Jets ({{jets_off}}, {{jets_def}})</td>
+					<td>{{cur_jets}}</td>
+					<td>2 troop units</td>
+					<td>{{jets_cost}}</td>
+					<td>{{max_jets}}</td>
+					<td><input type="number" min="0" max="{{max_jets}}", value="0" name="train"/></td>
+				</tr>
+				<tr>
+					<td>Turrets ({{turrets_off}}, {{turrets_def}})</td>
+					<td>{{cur_turrets}}</td>
+					<td>2 troop units</td>
+					<td>{{turrets_cost}}</td>
+					<td>{{max_turrets}}</td>
+					<td><input type="number" min="0" max="{{max_turrets}}", value="0" name="train"/></td>
+				</tr>
+				<tr>
+					<td>Tanks ({{tanks_off}}, {{tanks_def}})</td>
+					<td>{{cur_tanks}}</td>
+					<td>4 troop units</td>
+					<td>{{tanks_cost}}</td>
+					<td>{{max_tanks}}</td>
+					<td><input type="number" min="0" max="{{max_tanks}}", value="0" name="train"/></td>
+				</tr>
+			</table>
+			<input type="submit" value="Train"/>
+			</form>
+			<br/>{{msgs}}
+		</div>
+{% endblock %}
